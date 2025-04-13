@@ -11,7 +11,7 @@ export async function GET() {
     },
     servers: [
       {
-        url: 'https://solana-assistant-agent.vercel.app',
+        url: 'https://solana-assistant.vercel.app',
       },
     ],
     'x-mb': {
@@ -19,7 +19,7 @@ export async function GET() {
       assistant: {
         name: 'Solana Assistant',
         image:
-        "https://solana-assistant-agent.vercel.app/logo.png",
+        "https://solana-assistant.vercel.app/logo.svg",
         description:
           "An assistant that provides detailed information about the Solana blockchain, including address analysis, transaction history, portfolio tracking, and blockchain statistics.",
         instructions:
