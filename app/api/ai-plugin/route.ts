@@ -5,41 +5,42 @@ export async function GET() {
   const pluginData = {
     openapi: '3.0.0',
     info: {
-      title: 'Sui Assistant',
-      description: 'API for retrieving and analyzing Sui blockchain data',
+      title: 'Solana Assistant',
+      description: 'API for retrieving and analyzing Solana blockchain data',
       version: '1.0.0',
     },
     servers: [
       {
-        url: 'https://sui-assistant-agent.vercel.app',
+        url: 'https://solana-assistant-agent.vercel.app',
       },
     ],
     'x-mb': {
       'account-id': ACCOUNT_ID,
       assistant: {
-        name: 'Sui Assistant',
+        name: 'Solana Assistant',
         image:
-        "https://sui-assistant-agent.vercel.app/logo.png",
+        "https://solana-assistant-agent.vercel.app/logo.png",
         description:
-          "An assistant that provides detailed information about the Sui blockchain, including address analysis, transaction history, portfolio tracking, and blockchain statistics.",
+          "An assistant that provides detailed information about the Solana blockchain, including address analysis, transaction history, portfolio tracking, and blockchain statistics.",
         instructions:
-          "You are a specialized assistant for the Sui blockchain. You can retrieve and analyze Sui blockchain data, including address information, transaction history, portfolio details, and blockchain statistics. When users ask about Sui addresses, transactions, or blockchain data, use the appropriate endpoints to fetch and present the information in a clear and organized manner.",
+          "You are a specialized assistant for the Solana blockchain. You can retrieve and analyze Solana blockchain data, including address information, transaction history, portfolio details, and blockchain statistics. When users ask about Solana addresses, transactions, or blockchain data, use the appropriate endpoints to fetch and present the information in a clear and organized manner.",
         tools: [
-          { type: 'get-sui-address-info' },
-          { type: 'get-sui-transactions' },
-          { type: 'get-sui-portfolio' },
-          { type: 'get-sui-stats' },
-          { type: 'get-sui-objects' },
-          { type: 'generate-sui-tx' },
+          { type: 'get-solana-address-info' },
+          { type: 'get-solana-transactions' },
+          { type: 'get-solana-portfolio' },
+          { type: 'get-solana-stats' },
+          { type: 'get-solana-tokens' },
+          { type: 'generate-solana-tx' },
+          { type: 'get-solana-top-holders' },
         ],
       },
     },
     paths: {
-      '/api/tools/sui/address-info': {
+      '/api/tools/solana/address-info': {
         get: {
-          summary: 'Get Sui address information',
-          description: 'Retrieves detailed information about a Sui address',
-          operationId: 'get-sui-address-info',
+          summary: 'Get Solana address information',
+          description: 'Retrieves detailed information about a Solana address',
+          operationId: 'get-solana-address-info',
           parameters: [
             {
               name: 'address',
@@ -48,7 +49,7 @@ export async function GET() {
               schema: {
                 type: 'string',
               },
-              description: 'The Sui address to query',
+              description: 'The Solana address to query',
             },
           ],
           responses: {
@@ -61,15 +62,15 @@ export async function GET() {
                     properties: {
                       address: {
                         type: 'string',
-                        description: 'The queried Sui address',
+                        description: 'The queried Solana address',
                       },
                       balance: {
                         type: 'string',
-                        description: 'The address balance in SUI',
+                        description: 'The address balance in SOL',
                       },
-                      objects: {
+                      tokens: {
                         type: 'array',
-                        description: 'List of objects owned by the address',
+                        description: 'List of tokens owned by the address',
                         items: {
                           type: 'object',
                         },
@@ -86,11 +87,11 @@ export async function GET() {
           },
         },
       },
-      '/api/tools/sui/transactions': {
+      '/api/tools/solana/transactions': {
         get: {
-          summary: 'Get Sui transaction history',
-          description: 'Retrieves transaction history for a Sui address',
-          operationId: 'get-sui-transactions',
+          summary: 'Get Solana transaction history',
+          description: 'Retrieves transaction history for a Solana address',
+          operationId: 'get-solana-transactions',
           parameters: [
             {
               name: 'address',
@@ -99,7 +100,7 @@ export async function GET() {
               schema: {
                 type: 'string',
               },
-              description: 'The Sui address to query',
+              description: 'The Solana address to query',
             },
             {
               name: 'limit',
@@ -125,9 +126,9 @@ export async function GET() {
                         items: {
                           type: 'object',
                           properties: {
-                            digest: {
+                            signature: {
                               type: 'string',
-                              description: 'Transaction digest',
+                              description: 'Transaction signature',
                             },
                             timestamp: {
                               type: 'string',
@@ -152,11 +153,11 @@ export async function GET() {
           },
         },
       },
-      '/api/tools/sui/portfolio': {
+      '/api/tools/solana/portfolio': {
         get: {
-          summary: 'Get Sui portfolio',
-          description: 'Retrieves portfolio information for a Sui address',
-          operationId: 'get-sui-portfolio',
+          summary: 'Get Solana portfolio',
+          description: 'Retrieves portfolio information for a Solana address',
+          operationId: 'get-solana-portfolio',
           parameters: [
             {
               name: 'address',
@@ -165,7 +166,7 @@ export async function GET() {
               schema: {
                 type: 'string',
               },
-              description: 'The Sui address to query',
+              description: 'The Solana address to query',
             },
           ],
           responses: {
@@ -178,28 +179,28 @@ export async function GET() {
                     properties: {
                       address: {
                         type: 'string',
-                        description: 'The queried Sui address',
+                        description: 'The queried Solana address',
                       },
                       totalValue: {
                         type: 'string',
-                        description: 'Total portfolio value in SUI',
+                        description: 'Total portfolio value in SOL',
                       },
                       assets: {
                         type: 'array',
                         items: {
                           type: 'object',
                           properties: {
-                            type: {
+                            mint: {
                               type: 'string',
-                              description: 'Asset type',
+                              description: 'Token mint address',
                             },
                             balance: {
                               type: 'string',
-                              description: 'Asset balance',
+                              description: 'Token balance',
                             },
                             value: {
                               type: 'string',
-                              description: 'Asset value in SUI',
+                              description: 'Asset value in SOL',
                             },
                           },
                         },
@@ -212,11 +213,11 @@ export async function GET() {
           },
         },
       },
-      '/api/tools/sui/stats': {
+      '/api/tools/solana/stats': {
         get: {
-          summary: 'Get Sui blockchain statistics',
-          description: 'Retrieves current Sui blockchain statistics',
-          operationId: 'get-sui-stats',
+          summary: 'Get Solana blockchain statistics',
+          description: 'Retrieves current Solana blockchain statistics',
+          operationId: 'get-solana-stats',
           responses: {
             '200': {
               description: 'Successful response',
@@ -235,7 +236,7 @@ export async function GET() {
                       },
                       totalSupply: {
                         type: 'string',
-                        description: 'Total SUI supply',
+                        description: 'Total SOL supply',
                       },
                       averageBlockTime: {
                         type: 'string',
@@ -249,11 +250,11 @@ export async function GET() {
           },
         },
       },
-      '/api/tools/sui/objects': {
+      '/api/tools/solana/tokens': {
         get: {
-          summary: 'Get Sui objects',
-          description: 'Retrieves objects owned by a Sui address',
-          operationId: 'get-sui-objects',
+          summary: 'Get Solana tokens',
+          description: 'Retrieves tokens owned by a Solana address',
+          operationId: 'get-solana-tokens',
           parameters: [
             {
               name: 'address',
@@ -262,7 +263,7 @@ export async function GET() {
               schema: {
                 type: 'string',
               },
-              description: 'The Sui address to query',
+              description: 'The Solana address to query',
             },
           ],
           responses: {
@@ -273,29 +274,91 @@ export async function GET() {
                   schema: {
                     type: 'object',
                     properties: {
-                      objects: {
+                      tokens: {
                         type: 'array',
                         items: {
                           type: 'object',
                           properties: {
-                            objectId: {
+                            mint: {
                               type: 'string',
-                              description: 'Object ID',
+                              description: 'Token mint address',
                             },
-                            type: {
+                            amount: {
                               type: 'string',
-                              description: 'Object type',
+                              description: 'Token amount',
                             },
-                            version: {
+                            decimals: {
                               type: 'integer',
-                              description: 'Object version',
-                            },
-                            digest: {
-                              type: 'string',
-                              description: 'Object digest',
+                              description: 'Token decimals',
                             },
                           },
                         },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/api/tools/solana/top-holders': {
+        get: {
+          summary: 'Get top token holders',
+          description: 'Retrieves the top holders of a specific token on Solana',
+          operationId: 'get-solana-top-holders',
+          parameters: [
+            {
+              name: 'mint',
+              in: 'query',
+              required: true,
+              schema: {
+                type: 'string',
+              },
+              description: 'The token mint address',
+            },
+            {
+              name: 'limit',
+              in: 'query',
+              required: false,
+              schema: {
+                type: 'integer',
+                default: 10,
+              },
+              description: 'Number of top holders to return',
+            },
+          ],
+          responses: {
+            '200': {
+              description: 'Successful response',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      holders: {
+                        type: 'array',
+                        items: {
+                          type: 'object',
+                          properties: {
+                            address: {
+                              type: 'string',
+                              description: 'Holder address',
+                            },
+                            amount: {
+                              type: 'string',
+                              description: 'Token amount held',
+                            },
+                            percentage: {
+                              type: 'string',
+                              description: 'Percentage of total supply',
+                            },
+                          },
+                        },
+                      },
+                      totalSupply: {
+                        type: 'string',
+                        description: 'Total token supply',
                       },
                     },
                   },
