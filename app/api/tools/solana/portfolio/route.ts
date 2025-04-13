@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { Connection, PublicKey } from '@solana/web3.js';
 import axios from 'axios';
 
+export const dynamic = 'force-dynamic';
+
 const DEXSCREENER_API = 'https://api.dexscreener.com/latest/dex/tokens';
 const JUPITER_TOKEN_LIST_API = 'https://token.jup.ag/all';
 

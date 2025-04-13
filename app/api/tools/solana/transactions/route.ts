@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 import { Connection, PublicKey, VersionedTransaction } from '@solana/web3.js';
 
+export const dynamic = 'force-dynamic';
+
+// Revalidate every 15 seconds
+export const revalidate = 15;
+
 // Helper function to delay execution
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 

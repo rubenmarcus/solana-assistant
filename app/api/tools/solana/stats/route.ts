@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { Connection } from '@solana/web3.js';
 
+// Revalidate every 60 seconds
+export const revalidate = 60;
+
 export async function GET() {
   try {
     // Initialize Solana connection

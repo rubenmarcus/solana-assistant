@@ -3,6 +3,8 @@ import { Connection, PublicKey } from '@solana/web3.js';
 import { getMint } from '@solana/spl-token';
 import axios from 'axios';
 
+export const dynamic = 'force-dynamic';
+
 interface TokenInfo {
   mint: string;
   symbol: string;

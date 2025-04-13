@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Connection, PublicKey } from '@solana/web3.js';
 
+export const dynamic = 'force-dynamic';
+
 interface AccountInfo {
   address: string;
   balance: number;

@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Connection, PublicKey, TokenAccountBalancePair } from '@solana/web3.js';
 
+export const dynamic = 'force-dynamic';
+
 interface TokenAccountData {
   parsed: {
     info: {

@@ -2,6 +2,15 @@ import { NextResponse } from 'next/server';
 import { Connection, PublicKey } from '@solana/web3.js';
 import axios from 'axios';
 
+export const dynamic = 'force-dynamic';
+
+interface TokenAmount {
+  amount: string;
+  decimals: number;
+  uiAmount: number;
+  uiAmountString: string;
+}
+
 const JUPITER_TOKEN_LIST_API = 'https://token.jup.ag/all';
 const JUPITER_PRICE_API = 'https://price.jup.ag/v4/price';
 
@@ -93,7 +102,7 @@ export async function GET(request: Request) {
         const tokenAccount = await connection.getParsedAccountInfo(account.address);
         const data = tokenAccount.value?.data as any;
         const owner = data.parsed.info.owner;
-        const amount = account.amount.uiAmount;
+        const amount = Number(account.amount) / Math.pow(10, data.parsed.info.tokenAmount.decimals);
 
         return {
           address: owner,

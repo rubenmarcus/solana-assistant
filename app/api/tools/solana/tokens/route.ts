@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server';
 import { Connection, PublicKey } from '@solana/web3.js';
 import { getMint } from '@solana/spl-token';
 
+export const dynamic = 'force-dynamic';
+
+// Revalidate every 30 seconds
+export const revalidate = 30;
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
