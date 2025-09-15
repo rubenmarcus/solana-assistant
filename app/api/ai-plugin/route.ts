@@ -15,7 +15,7 @@ export async function GET() {
       },
     ],
     'x-mb': {
-      'account-id': ACCOUNT_ID,
+      "account-id":  '9xrWn6DvF6tL8ghzPRxUet2ATgyU24F2ghB8deJKNLym',
       chainIds: [-200],
       assistant: {
         name: 'Solana Assistant',
