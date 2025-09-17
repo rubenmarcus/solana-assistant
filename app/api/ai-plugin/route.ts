@@ -16,9 +16,9 @@ export async function GET() {
     ],
     'x-mb': {
       "account-id": '9xrWn6DvF6tL8ghzPRxUet2ATgyU24F2ghB8deJKNLym',
-      chainIds: ['solana'],
       assistant: {
         name: 'Solana Assistant',
+        chainIds: ['solana'],
         image:
         "https://solana-assistant.vercel.app/logo.svg",
         description:
