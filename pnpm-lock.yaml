@@ -30,8 +30,8 @@ importers:
         specifier: ^16.3.1
         version: 16.5.0
       make-agent:
-        specifier: ^0.3.5
-        version: 0.3.5(@types/node@20.17.30)(openapi-types@12.1.3)
+        specifier: ^0.4.1
+        version: 0.4.1(@near-js/accounts@1.4.1)(@near-js/crypto@1.4.2)(@near-js/keystores-browser@0.2.2)(@near-js/keystores-node@0.1.2)(@near-js/keystores@0.2.2)(@near-js/providers@1.0.3)(@near-js/signers@0.2.2)(@near-js/transactions@1.3.3)(@near-js/types@0.3.1)(@near-js/utils@1.1.0)(@types/node@20.17.30)(openapi-types@12.1.3)
       next:
         specifier: ^15.2.4
         version: 15.3.0(@babel/core@7.26.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2819,8 +2819,8 @@ packages:
   lunr@2.3.9:
     resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
 
-  make-agent@0.3.5:
-    resolution: {integrity: sha512-LKQOAVzaDMCT0x3VQNUb3tz4VgA8hpWcnHlBZigAAxOXTku8HuZqNWqVF6n9imTaI/QwzJiyDZS+bFIb79CKWg==}
+  make-agent@0.4.1:
+    resolution: {integrity: sha512-a3e5zPp+Zd06Oj5pB5JehW2jUx8WZHAYZ/b9SoHJBBVqQbtEZG2Qj9f+uhYlC0fWby6GbOlDCQPpTvke2h8fsg==}
     hasBin: true
 
   make-dir@4.0.0:
@@ -2972,6 +2972,20 @@ packages:
 
   near-api-js@5.1.1:
     resolution: {integrity: sha512-h23BGSKxNv8ph+zU6snicstsVK1/CTXsQz4LuGGwoRE24Hj424nSe4+/1tzoiC285Ljf60kPAqRCmsfv9etF2g==}
+
+  near-api-js@6.3.0:
+    resolution: {integrity: sha512-UPM/a03vMni5ljx82dQ1C/TkRvz1o+AN77gM3mXiQ02tXiepyl9sVElisW5qwic1N2sEqPdI4yeetmScHcE1yw==}
+    peerDependencies:
+      '@near-js/accounts': ^2.0.1
+      '@near-js/crypto': ^2.0.1
+      '@near-js/keystores': ^2.0.1
+      '@near-js/keystores-browser': ^2.0.1
+      '@near-js/keystores-node': ^2.0.1
+      '@near-js/providers': ^2.0.1
+      '@near-js/signers': ^2.0.1
+      '@near-js/transactions': ^2.0.1
+      '@near-js/types': ^2.0.1
+      '@near-js/utils': ^2.0.1
 
   near-ca@0.9.6:
     resolution: {integrity: sha512-shbe3DwFfpqYLObMgOq94KyKvg8QeU9uZA0EgY86GS8AM0ACFHJCwhfdcqcwu77i8Oe/qx5ieQ0wTWdeMKzNWQ==}
@@ -6500,7 +6514,7 @@ snapshots:
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.5(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.0.0-canary-7118f5dd7-20230705(eslint@8.57.1)
@@ -6530,7 +6544,7 @@ snapshots:
       tinyglobby: 0.2.12
       unrs-resolver: 1.5.0
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -6545,7 +6559,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.0)(eslint@8.57.1):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -7781,7 +7795,7 @@ snapshots:
 
   lunr@2.3.9: {}
 
-  make-agent@0.3.5(@types/node@20.17.30)(openapi-types@12.1.3):
+  make-agent@0.4.1(@near-js/accounts@1.4.1)(@near-js/crypto@1.4.2)(@near-js/keystores-browser@0.2.2)(@near-js/keystores-node@0.1.2)(@near-js/keystores@0.2.2)(@near-js/providers@1.0.3)(@near-js/signers@0.2.2)(@near-js/transactions@1.3.3)(@near-js/types@0.3.1)(@near-js/utils@1.1.0)(@types/node@20.17.30)(openapi-types@12.1.3):
     dependencies:
       '@apidevtools/swagger-parser': 12.0.0(openapi-types@12.1.3)
       ajv: 8.17.1
@@ -7793,9 +7807,19 @@ snapshots:
       inquirer: 12.5.2(@types/node@20.17.30)
       is-port-reachable: 4.0.0
       js-sha256: 0.11.0
-      near-api-js: 5.1.1
+      near-api-js: 6.3.0(@near-js/accounts@1.4.1)(@near-js/crypto@1.4.2)(@near-js/keystores-browser@0.2.2)(@near-js/keystores-node@0.1.2)(@near-js/keystores@0.2.2)(@near-js/providers@1.0.3)(@near-js/signers@0.2.2)(@near-js/transactions@1.3.3)(@near-js/types@0.3.1)(@near-js/utils@1.1.0)
       open: 10.1.0
     transitivePeerDependencies:
+      - '@near-js/accounts'
+      - '@near-js/crypto'
+      - '@near-js/keystores'
+      - '@near-js/keystores-browser'
+      - '@near-js/keystores-node'
+      - '@near-js/providers'
+      - '@near-js/signers'
+      - '@near-js/transactions'
+      - '@near-js/types'
+      - '@near-js/utils'
       - '@types/node'
       - encoding
       - openapi-types
@@ -7915,6 +7939,27 @@ snapshots:
       '@near-js/types': 0.3.1
       '@near-js/utils': 1.1.0
       '@near-js/wallet-account': 1.3.3
+      '@noble/curves': 1.8.1
+      borsh: 1.0.0
+      depd: 2.0.0
+      http-errors: 1.7.2
+      near-abi: 0.2.0
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
+
+  near-api-js@6.3.0(@near-js/accounts@1.4.1)(@near-js/crypto@1.4.2)(@near-js/keystores-browser@0.2.2)(@near-js/keystores-node@0.1.2)(@near-js/keystores@0.2.2)(@near-js/providers@1.0.3)(@near-js/signers@0.2.2)(@near-js/transactions@1.3.3)(@near-js/types@0.3.1)(@near-js/utils@1.1.0):
+    dependencies:
+      '@near-js/accounts': 1.4.1
+      '@near-js/crypto': 1.4.2
+      '@near-js/keystores': 0.2.2
+      '@near-js/keystores-browser': 0.2.2
+      '@near-js/keystores-node': 0.1.2
+      '@near-js/providers': 1.0.3
+      '@near-js/signers': 0.2.2
+      '@near-js/transactions': 1.3.3
+      '@near-js/types': 0.3.1
+      '@near-js/utils': 1.1.0
       '@noble/curves': 1.8.1
       borsh: 1.0.0
       depd: 2.0.0
